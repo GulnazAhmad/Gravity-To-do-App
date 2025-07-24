@@ -74,8 +74,8 @@ export const logout = async (req, res) => {
   try {
     res.clearCookie("jwttoken", {
       httponly: true,
-      sameSite: "lax",
-      secure: false,
+      sameSite: "None",
+      secure: true,
     });
     res.status(200).json("logged out successfully");
   } catch (e) {
