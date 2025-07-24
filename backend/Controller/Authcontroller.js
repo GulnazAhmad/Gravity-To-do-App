@@ -31,8 +31,8 @@ export const Register = async (req, res) => {
     const token = createtoken(email, newuser._id);
     res.cookie("jwttoken", token, {
       httponly: true,
-      sameSite: "lax",
-      secure: false,
+      sameSite: "None",
+      secure: true,
     });
     return res.status(201).json(newuser);
   } catch (e) {
@@ -59,8 +59,8 @@ export const login = async (req, res) => {
 
     res.cookie("jwttoken", token, {
       httpOnly: true,
-      sameSite: "lax",
-      secure: false,
+      sameSite: "None",
+      secure: true,
     });
     const { password: _, ...info } = userexist._doc;
     res.status(200).json(info);
