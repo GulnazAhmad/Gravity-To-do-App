@@ -10,7 +10,7 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // or wherever your frontend is
+    origin: true, // or wherever your frontend is
     credentials: true,
   })
 );
