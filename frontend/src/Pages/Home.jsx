@@ -54,14 +54,14 @@ const Home = () => {
           {loader ? (
             <p>Loading tasks...</p>
           ) : !user ? (
-            <div className="m-4 p-5 h-full flex-1 md:justify-center md:items-center md:flex flex-col justify-center items-center duration-1000 transition-all">
-              <Lottie
-                isClickToPauseDisabled={true}
-                height={500}
-                width={500}
-                options={animationDefaultOptions}
-              />
-              <p className=" text-3xl text-shadow-black ">
+            <div className="m-4 p-5 h-full flex-1 flex flex-col justify-center items-center transition-all duration-1000">
+              <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+                <Lottie
+                  isClickToPauseDisabled={true}
+                  options={animationDefaultOptions}
+                />
+              </div>
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-center text-shadow-black mt-4">
                 Login/Register to start!
               </p>
             </div>
