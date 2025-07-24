@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
 import { useContext, useState } from "react";
-import Menu from "../components/Menu";
+import Menu from "../Components/Menu";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
 import { URL } from "../url";
