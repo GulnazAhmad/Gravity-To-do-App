@@ -31,6 +31,15 @@ const Navbar = () => {
       console.error("Search error:", error);
     }
   };
+  const handleLogout = async () => {
+    try {
+      await axios.post(`${URL}/api/auth/logout`, {}, { withCredentials: true });
+      navigate("/");
+      window.location.reload(); // optional: force refresh
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
+  };
 
   return (
     <>
@@ -58,9 +67,9 @@ const Navbar = () => {
         )}
         <div className="hidden md:flex items-center justify-center space-x-2 md:space-x-4">
           {user ? (
-            <h3>
-              <Link to="/api/auth/logout">Logout</Link>
-            </h3>
+            <p className="cursor-pointer text-white" onClick={handleLogout}>
+              Logout
+            </p>
           ) : (
             <h3>
               <Link to="/login">Login</Link>
