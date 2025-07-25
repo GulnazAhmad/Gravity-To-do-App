@@ -3,7 +3,7 @@ import axios from "axios";
 import { UserContext } from "../context/UserContext";
 import { URL } from "../url";
 import Navbar from "../Components/Navbar";
-import Lottie from "react-lottie"; // Don't forget to import Lottie
+import Lottie from "react-lottie";
 import { animationDefaultOptions } from "../utils";
 import AddTask from "../Components/AddTask";
 import TaskItem from "../Components/TaskItem";
