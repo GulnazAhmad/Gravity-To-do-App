@@ -22,6 +22,7 @@ const Navbar = () => {
       if (!trimmed) return;
       await axios.get(`${URL}/api/searchtask`, {
         params: { keyword: trimmed },
+        withCredentials: true,
       });
       navigate(`/?task=${trimmed}`);
       setPrompt("");

@@ -14,6 +14,10 @@ const TaskSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    user: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

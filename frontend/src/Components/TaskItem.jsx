@@ -1,4 +1,4 @@
-import React from "react";
+//import React, { useContext } from "react";
 import axios from "axios";
 import { URL } from "../url";
 import { MdDeleteForever } from "react-icons/md";
@@ -6,9 +6,10 @@ import { MdCheckBoxOutlineBlank } from "react-icons/md";
 import { MdCheckBox } from "react-icons/md";
 import { FaRegStar } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
+//import { UserContext } from "../context/UserContext";
 const TaskItem = ({ task, onRefresh, highlightText }) => {
   //console.log("Task details:", task);
-
+  //const { user } = useContext(UserContext);
   const handleDelete = async () => {
     try {
       await axios.delete(`${URL}/api/deletetask/${task._id}`, {

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { URL } from "../url";
-
+import { UserContext } from "../context/UserContext";
+import { useContext } from "react";
 const AddTask = ({ onTaskAdded }) => {
   const [task, setTask] = useState("");
-
+  const { user } = useContext(UserContext);
+  console.log(user);
   const handleAdd = async () => {
     if (!task.trim()) return;
     try {

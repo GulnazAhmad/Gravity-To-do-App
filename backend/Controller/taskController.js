@@ -3,9 +3,11 @@ import Task from "../Models/taskmodel.js";
 export const createTask = async (req, res) => {
   try {
     const { task } = req.body;
+
     const newtask = await Task.create({
       task: task,
       completed: false,
+      user: req.userId,
     });
 
     return res.status(201).json(newtask);
@@ -16,7 +18,7 @@ export const createTask = async (req, res) => {
 };
 export const allTasks = async (req, res) => {
   try {
-    const tasks = await Task.find();
+    const tasks = await Task.find({ user: req.userId });
 
     return res.status(201).json(tasks);
   } catch (e) {
@@ -26,8 +28,9 @@ export const allTasks = async (req, res) => {
 };
 export const updateTask = async (req, res) => {
   try {
+    const { user } = req.body;
     const updatedTask = await Task.findByIdAndUpdate(
-      req.params.id,
+      { _id: req.params.id, user: req.userId },
       { $set: req.body },
       { new: true }
     );
@@ -53,6 +56,7 @@ export const searchTask = async (req, res) => {
       return res.status(400).json({ error: "Keyword is required" });
     }
     const tasks = await Task.find({
+      user: req.userId,
       task: { $regex: keyword, $options: "i" },
     });
     return res.status(200).json(tasks);

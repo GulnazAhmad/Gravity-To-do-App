@@ -15,7 +15,7 @@ const Home = () => {
   const { user } = useContext(UserContext);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const searchTask = queryParams.get("task") || "";
+  const searchTask = queryParams.get("task") || ""; //Extracts the task value from the URL (e.g. ?task=hello).
   //console.log("user is", user);
 
   const fetchTasks = async () => {
