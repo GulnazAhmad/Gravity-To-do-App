@@ -10,7 +10,7 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://gravity-to-do-app.onrender.com",
     credentials: true,
   })
 );
